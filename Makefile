@@ -1,12 +1,13 @@
 # minimal makefile for SE class
-all: Main.class test
+all: test
 
 # main depends on all cpp files
-Main.class: Main.java
+%.class: %.java
 	javac $^
 
-test:
+test: Main.class TestSuite.class
 	java Main DollarToEuro 10000
+	java TinyTestJ.RunTests TestSuite
 
 clean:
 	rm *.class
