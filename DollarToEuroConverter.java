@@ -1,16 +1,22 @@
-public class DollarToEuroConverter extends UnitConverter
+package se2;
+
+public class DollarToEuroConverter extends CurrencyConverter
+
 {
-  public DollarToEuroConverter() { }
-
-  public double convert(double inDollars) {
-    return inDollars*0.85;
+  public double originalValue;
+  public double convertedValue;
+  public DollarToEuroConverter() {}
+  public double convert(double inDollars)
+  {   originalValue=inDollars;
+      convertedValue=0.85*originalValue;
+      return convertedValue;
   }
+  
+  public String toString(){return originalValue+"USD ="+convertedValue + "EUR";}
+  
+  public void print(){System.out.println(toString());}
 
-  public String toString(){
-    return "Dollar to Euro Converter";
-  }
-
-  public void print(){
-    System.out.println(toString());
-  }
-};
+ 
+ 
+  
+}
